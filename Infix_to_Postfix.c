@@ -45,7 +45,7 @@ int main(){
                 else if (op =='^') p2=3;
                 else p2=0;
                 
-                if (p2>=p1){
+                if (p2>p1||(p2==p1&&ch!='^')){
                     postfix[j++]=stack[top--];
                     postfix[j++] = ' ';
                 }
@@ -68,8 +68,8 @@ int main(){
             if (ch==' ') continue;
             if (isdigit(ch)){
                 int num=0;
-                while (isdigit(postfix[i])){
-                    num=num*10+(postfix[i]-'0');
+                while (isdigit(ch)){
+                    num=num*10+(ch-'0');
                     i++;
                 }
                 evaluation[++evaltop]=num;
@@ -82,12 +82,13 @@ int main(){
             else{
                 int b=evaluation[evaltop--];
                 int a =evaluation[evaltop--];
-                int result=1;
+                int result;
                 if (ch=='+') result=a+b;
                 else if (ch=='-') result = a-b;
                 else if (ch=='*') result = a*b;
                 else if (ch=='/') result = a/b;
                 else if (ch=='^'){
+                    result=1;
                     for (int k=0;k<b;k++){
                         result*=a;
                     }       
