@@ -5,7 +5,7 @@ int main(){
     char infix[100],postfix[100],stack[100];
     int j=0,top=-1,p1,p2;
     printf("enter expression");
-    scanf("%s",infix);
+    fgets(infix,sizeof(infix),stdin);
     for (int i=0;infix[i]!='\0';i++){
         char ch=infix[i];
         if( ch==' ') continue;
