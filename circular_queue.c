@@ -11,7 +11,7 @@ int main() {
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                if ((rear + 1) % n == front) {
+                if ((front == 0 && rear == size - 1) ||(rear + 1) % n == front) {
                     printf("Overflow\n");
                 } else {
                     printf("Enter value: ");
